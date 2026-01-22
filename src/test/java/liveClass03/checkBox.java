@@ -1,5 +1,6 @@
 package liveClass03;
 
+import org.jspecify.annotations.Nullable;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,7 +26,10 @@ public class checkBox {
         List<WebElement> allOptions = driver.findElements(By.xpath("//input[@class='cb1-element']"));
 
         for(WebElement option:allOptions){
-            option.click();
+             String valueOption = option.getAttribute("value");
+            if(valueOption.equals("Option-1") ||valueOption.equals("Option-2") ) {
+                option.click();
+            }
         }
 
 
